@@ -10,12 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/davigrossis/node-markdown.git"
   },
-  "license": "ISC",
   "author": "davigrossi",
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "dependencies": {
     "ejs": "^3.1.10",
