@@ -11,6 +11,20 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", function (req, res) {
   res.render("pad");
 });
+app.get("/(:id)", function (req, res) {
+  res.render("pad");
+});
+
+//get sharejs dependencies
+var sharejs = require("share");
+require("redis");
+
+var options = {
+  db: { type: "redis" },
+};
+
+// attach the express server to sharejs
+sharejs.server.attach(app, options);
 
 //listen to port 3000 (for localhost) or the port defined
 var port = process.env.PORT || 3000;
