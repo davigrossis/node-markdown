@@ -27,8 +27,15 @@ window.onload = function () {
 
   pad.addEventListener("input", convertTextAreaToMarkdown);
 
-  sharejs.open("home", "text", function (error, doc) {
-    doc.attach_textarea(pad);
-    convertTextAreaToMarkdown();
-  });
+  if (document.location.pathname.length > 1) {
+    var documentName = document.location.pathname.substring(1);
+    sharejs.open(documentName, `text`, function (error, doc) {
+      doc.attach_textarea(pad);
+      convertTextAreaToMarkdown();
+
+    });
+  }
+
+  convertTextAreaToMarkdown();
 };
+
